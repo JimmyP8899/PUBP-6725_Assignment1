@@ -1,21 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Phished</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 100px;
-    }
-    h1 {
-      color: red;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>You Got Phished</title>
+<style>
+  :root {
+    --bg: #0b1220;
+    --card: #0f1724;
+    --text: #e6eef8;
+    --muted: #94a3b8;
+    --accent: #ff6b6b;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .container {
+    max-width: 600px;
+    padding: 28px;
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  h1 {
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .info {
+    margin: 12px 0;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .members {
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--text);
+  }
+</style>
 </head>
 <body>
-  <h1>You’ve been redirected!</h1>
-  <p>This is <code>phished.html</code>.</p>
+  <div class="container">
+    <h1>You Got Phished</h1>
+    <p class="info">This was a phishing simulation page for academic purposes.</p>
+    
+    <p class="info"><strong>Class:</strong> PUBP-6725<br>
+    <strong>Assignment:</strong> 1</p>
+    
+    <p class="members">
+      Group Members:<br>
+      James Hauth • Iman Rahimpour • Samantha Reth • Jimmy Peng
+    </p>
+  </div>
 </body>
 </html>
