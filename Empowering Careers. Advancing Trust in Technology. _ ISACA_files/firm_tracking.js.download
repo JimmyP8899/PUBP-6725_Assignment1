@@ -1,0 +1,175 @@
+(function(w){
+  var config = {"metricsLabels":{"contentBoards":"tr_smart_page","audiences":"tr_audience","personalizations":"tr_personalization","campaigns":"tr_campaign"},"hitTypes":{"contentBoards":"event","audiences":"event","personalizations":"event","campaigns":"event"},"shouldTrackOrgAssets":true,"firmTrackProvider":"ga4","triblioVisitorId":"3jHSHjjzOUGn3oEAC4QASYZR"};
+  var triblioVisitorId = config.triblioVisitorId;
+  var firmographicRecord =  {"name":"(Non-Company Visitor)","sicCode":"N/A","isIsp":true,"employees":"N/A","revenue":"N/A","city":"N/A","region":"N/A","country":"N/A","domain":"N/A","naicCode":"N/A","employeesCode":"N/A","revenueCode":"N/A","industry":"N/A","subIndustry":"N/A"};
+  var shouldTrackOrgAssets = config.shouldTrackOrgAssets;
+  var eIdsToNames = {"personalizations":{"eO08P":"Increase Your Enrollment - Middle East Named","QG1mY":"Increase Your Enrollment - ROA Named","lXv5n":"Increase Your Enrollment - India Named","Yq8g6":"ATO - India Named","J03ne":"ATO - Rest of Asia Named","wnkl3":"Awareness - MDDAP - US Intent","DqdnL":"Enterprise Direct V1  - North America Named","qwXvL":"Increase Your Enrollment - Europe Named","9LmXz":"Increase Your Enrollment - North America Named","AGYpo":"Increase Your Enrollment - Middle East Intent","LR2kn":"Increase Your Enrollment - North America Intent","21bJP":"Increase Your Enrollment - Europe Intent","GXk08":"ATO - Europe Named","7jBqE":"ATO - North America Named","44vmB":"Enterprise Direct V1  -  Europe Named","BXmRX":"Enterprise Direct V1  -  Rest of Asia Intent","OoDgZ":"Awareness - MDDAP - US Named","db9J5":"Enterprise Direct V1  -  Rest of Asia Named","j2JPp":"CMMI Ads - North America Intent","bEqB0":"Enterprise Direct V1  -  India Intent","44vAX":"CMMI Ads - North America Named","PRMz2":"Enterprise Direct V1  - North America Intent","gD1j6":"Increase Your Enrollment - ROA Intent","j2JZD":"CMMI Ads - North America Intent - Native","nlJYO":"CMMI Ads - North America Named - Native","z1mYZ":"Enterprise Direct V1  -  Europe Intent","P5n9":"MDDAP - Native","Me1Y7":"Enterprise Direct V1  -  India Named"},"campaigns":{"1l0w":"CMMI Intent Accounts","RLk7":"CMMI Named Accounts","eGZZ":"MDDAP Intent Accounts","qKz5":"MDDAP Named Accounts","3Zo9":"Academic Named Accounts","gvJb":"Academic Intent Accounts","2l0z":"ATO Named Accounts","bRAB":"MDDAP - Native","9joe":"Enterprise Direct Named Accounts","ELdz":"Enterprise Direct Intent Accounts"},"contentHubs":{},"audiences":{"Pk9m":"Academic","KP6k":"Enterprise Direct Copy","6MKE":"ATO Copy","5l0L":"CMMI Copy","xRQB":"Academic Copy","klZ2":"test","z3eE":"Enterprise Direct Copy Copy","Q9K4":"Enterprise Direct Copy Copy Copy","qbn3":"Enterprise Direct Copy Copy Copy Copy","exWn":"Enterprise Direct Copy Copy Copy Copy Copy","9Jl6":"Enterprise Direct Copy Copy Copy Copy Copy Copy","E4KK":"Enterprise Direct Copy Copy Copy Copy Copy Copy Copy","REKw":"Enterprise Direct Copy Copy Copy Copy Copy","1gE0":"ATO Copy Copy","3A1B":"ATO Copy Copy Copy","gM6o":"ATO Copy Copy Copy Copy","22Mv":"ATO Copy Copy Copy Copy Copy","AaK4":"ATO Copy Copy Copy Copy Copy Copy","LbXd":"ATO Copy Copy Copy Copy Copy Copy","ln69":"ATO Copy Copy Copy Copy Copy Copy","pP8n":"CMMI Copy","Zl65":"CMMI Copy Copy","v9bW":"CMMI Copy Copy Copy","JBKB":"Academic Copy Copy","7ZAb":"Academic Copy Copy","03k5":"Academic - Native","zweL":"test - First Stage","Zl3v":"MDDAP - Native","3Wv9":"Example","QLYx":"All Salesforce Accounts","md02":"Training 8/21","wj0e":"MDDAP","bowO":"Example","pmqX":"Do Not Use: Enterprise Direct - First Stage","Zm30":"CMMI - First Stage","vn3B":"ATO - First Stage","ln9n":"CMMI Copy","BqmK":"MDDAP","ggDq":"test","KAJm":"Do Not Use: MDDAP - First Stage","GK28":"Do Not Use: MDDAP Copy","KapP":"Do Not Use: Enterprise Direct Copy","698P":"MDDAP - First Stage","5e4n":"Enterprise Direct - First Stage","L46K":"Do Not Use: ATO","6Gzg":"ATO","2nvv":"Enterprise Direct Intent Accounts - Second Stage","o8PP":"Closed One- SFDC","4kwD":"Academic Intent Accounts - Second Stage","8zwY":"MDDAP Intent Accounts - Second Stage","nvaO":"CMMI Intent Accounts - Second Stage","ga6G":"test - First Stage","MKqO":"MDDAP Named Accounts","Bvdk":"Academic - First Stage","1bQe":"test","8plX":"Ujala Test- Conference Sponsorship Audience","5Awv":"test","O5xg":"test - Third Stage","gg2B":"ATO Named Accounts","18pR":"Academic Named Accounts","Pxdb":"Academic Named Accounts Copy","QMpG":"test - Second Stage","E6d7":"CMMI","AgmE":"MDDAP Named Accounts - First Stage","LGx5":"MDDAP Intent Accounts - First Stage","lp0O":"Enterprise Direct Named Accounts - First Stage","p7XO":"Enterprise Direct Intent Accounts - First Stage","ZkWP":"CMMI Named Accounts - First Stage","vxJq":"CMMI Intent Accounts - First Stage","7bO4":"Academic Intent Accounts - First Stage","J7OJ":"Academic Named Accounts - First Stage","YjlZ":"ATO Named Accounts - First Stage","ggpB":"MDDAP Copy","AgEE":"MDDAP Copy","LGp5":"Enterprise Direct Copy","vx7q":"Enterprise Direct Named Accounts Copy","GZMW":"CMMI Copy","J7MJ":"Enterprise Direct Named Accounts Copy","lp3O":"Enterprise Direct Copy","7b94":"Enterprise Direct Named Accounts Copy","p76O":"Enterprise Direct Copy","KA8J":"Enterprise Direct","Zk0P":"Enterprise Direct Copy","YjJZ":"Enterprise Direct Named Accounts Copy","KYZ1":"CMMI Copy","6POZ":"CMMI Named Accounts Copy","5BD4":"CMMI Named Accounts Copy","wapg":"Academic Named Accounts Copy","xOp3":"Academic Copy","W8J7":"Academic Named Accounts Copy","aeM6":"Academic Copy","O5pw":"Academic Copy","mZ3d":"Academic Named Accounts Copy","04O0":"Academic Copy","oJ0a":"Academic Named Accounts Copy","Xnad":"ATO Copy","dRYk":"ATO Copy","DL27":"ATO Copy","MKp2":"ATO Copy","RP4Q":"test","4kJK":"MDDAP Intent Accounts","9QDb":"Enterprise Direct Intent Accounts","ROJo":"CMMI Intent Accounts","3jvX":"Academic Intent Accounts","Elgw":"CMMI Named Accounts","e1vz":"Enterprise Direct Named Accounts"}};
+  var gaObjectAlias = config.gaObjectAlias;
+  var thirdPartyLibraryLoaded = false;
+
+  if(!w.Triblio){ w.Triblio = {}; }
+  if(w.Triblio.onAccountIdentificationReady){ w.Triblio.onAccountIdentificationReady(firmographicRecord); }
+  w.Triblio.getAccountIdentification = function(){
+    return firmographicRecord;
+  };
+
+  if(!w.TriblioAssetNameTracking) w.TriblioAssetNameTracking = {queued:[]};
+  if(config.firmTrackProvider === "ga4") {
+    w.dataLayer = w.dataLayer || [];
+  }
+
+  function GATracker(){
+    this.maxRetries = 1000;
+    this.retryCount = 0;
+  }
+
+  GATracker.prototype.run = function(){
+    var that = this;
+
+    this.waitForThirdParty(function(){
+      that.postFirmographicData();
+
+      that.checkAssetNamesQueue();
+    });
+  };
+
+  GATracker.prototype.waitForThirdParty = function(callback){
+    var that = this;
+    let hasFirmTrackProviderObject = true;
+
+    if(config.firmTrackProvider === "ga4" && typeof w.google_tag_manager === "undefined") hasFirmTrackProviderObject = false;
+    else if(config.firmTrackProvider === "ga" && typeof w[gaObjectAlias] === "undefined") hasFirmTrackProviderObject = false;
+
+    let errorText = config.firmTrackProvider === "ga4" ? "Unable to find gtag or google tag manager analytics library on page" : "cant find google analytics library on page!";
+
+    if(!hasFirmTrackProviderObject && this.retryCount <= this.maxRetries){
+      /*wait for ga to load*/
+      setTimeout(function(){
+        that.retryCount++;
+        that.waitForThirdParty(callback);
+      }, 5);
+    }
+    else if(this.retryCount > this.maxRetries){
+      console.log(errorText);
+    }
+    else{
+      thirdPartyLibraryLoaded = true;
+      callback();
+    }
+  };
+
+  GATracker.prototype.postFirmographicData = function(){
+    var data = {"name":"(Non-Company Visitor)","sicCode":"N/A","isIsp":true,"employees":"N/A","revenue":"N/A","city":"N/A","region":"N/A","country":"N/A","domain":"N/A","naicCode":"N/A","employeesCode":"N/A","revenueCode":"N/A","industry":"N/A","subIndustry":"N/A"};
+if(window.google_tag_manager) {
+
+                dataLayer.push({
+                                  "event": "tr_firmographic_enrichment",
+                                  "nonInteraction": true,"tr_name": data.name, 
+				 "tr_sicCode": data.sicCode, 
+				 "tr_isIsp": data.isIsp, 
+				 "tr_employees": data.employees, 
+				 "tr_revenue": data.revenue, 
+				 "tr_city": data.city, 
+				 "tr_region": data.region, 
+				 "tr_country": data.country, 
+				 "tr_domain": data.domain, 
+				 "tr_subIndustry": data.subIndustry, 
+				 "tr_industry": data.industry, 
+				 "tr_naicCode": data.naicCode, 
+				 "tr_employeesCode": data.employeesCode, 
+				 "tr_revenueCode": data.revenueCode 
+ });
+     
+                }
+                else console.log("cant find google tag manager on the page");
+  };
+
+  GATracker.prototype.checkAssetNamesQueue = function(){
+    var that = this;
+
+    if(w.TriblioAssetNameTracking.queued){
+      w.TriblioAssetNameTracking.queued.forEach(function(ids){
+        that.postAssetNames(ids);
+      });
+    }
+  };
+
+  GATracker.prototype.postAssetNames = function(ids){
+    if(shouldTrackOrgAssets && thirdPartyLibraryLoaded){
+      var data = _getAssetNamesFromIds(ids);
+
+      
+    if(data && data.length) {
+      let firmData = {
+        "event":"tr_event",
+        "non_interaction": true
+      };
+      
+      data.forEach(function(d){
+        firmData[d.metricsLabel] = d.name;
+      });
+
+      dataLayer.push(firmData);
+    }
+  
+    }
+  };
+
+  function _getAssetNamesFromIds(data){
+    /*currently there is no click tracking on assets for ga, so get out of here!*/
+    if(data.action === 'click') return [];
+
+    var lookup = eIdsToNames;
+    if(!lookup || !Object.keys(lookup).length){
+      lookup = {personalizations:{}, contentHubs: {}, audiences:{}, campaigns:{}};
+    }
+
+    var names = [];
+    var isTypeBoardAndHasData = data.hubId && lookup.contentHubs[data.hubId];
+
+    if(isTypeBoardAndHasData){
+      names.push({
+        metricsLabel:config.metricsLabels.contentBoards,
+        name: lookup.contentHubs[data.hubId],
+        hitType: config.hitTypes.contentBoards
+      });
+    }
+    else if(data.type !== "board" && data.personalizationId && data.audienceSegmentId && data.campaignId){
+      var personalizationIds = data.personalizationId.split(",");
+      var audienceSegmentIds = data.audienceSegmentId.split(",");
+      var campaignIds = data.campaignId.split(",");
+
+      personalizationIds.forEach(function(pId, index){
+        var hasPersonalization = (personalizationIds[index] && lookup.personalizations[personalizationIds[index]]) ? true : false;
+        var hasAudience = (audienceSegmentIds[index] && lookup.audiences[audienceSegmentIds[index]]) ? true : false;
+        var hasCampaign = (campaignIds[index] && lookup.campaigns[campaignIds[index]]) ? true : false;
+
+        if(hasPersonalization && hasAudience && hasCampaign){
+          names.push({
+            metricsLabel:config.metricsLabels.personalizations,
+            name: lookup.personalizations[personalizationIds[index]],
+            hitType: config.hitTypes.personalizations
+          });
+
+          names.push({
+            metricsLabel: config.metricsLabels.campaigns,
+            name: lookup.campaigns[campaignIds[index]],
+            hitType: config.hitTypes.campaigns
+          });
+
+          names.push({
+            metricsLabel: config.metricsLabels.audiences,
+            name: lookup.audiences[audienceSegmentIds[index]],
+            hitType: config.hitTypes.audiences
+          });
+        }
+      });
+    }
+    return names;
+  }
+
+  var tracker = new GATracker();
+  w.TriblioAssetNameTracking.postAssetNames = tracker.postAssetNames;
+
+  tracker.run();
+}(window));
